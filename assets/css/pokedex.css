@@ -5,6 +5,7 @@
 .pokemon-list{
 	display: grid;
     grid-template-columns: 1fr 1fr;
+
 }
 
 .pokemon{
@@ -17,14 +18,24 @@
 	padding: 2rem 1rem;
 	background-color: var(--first-color);
 	color: #FFF;
+	transition: 300ms;
+	box-shadow: 1px 1px 10px grey;
+}
+
+.pokemon:hover{
+	transform: scale(1.05);
+	box-shadow: 2px 2px 25px grey;
 }
 
 /* start styles container */
 
 /* start styles 1st line */
 .pokemon. .name{
-	margin-bottom: 0.25rem;
+	margin-bottom: .25rem;
 	text-align: left;
+}
+.name{
+	text-transform: capitalize;
 }
 
 .pokemon .number{
@@ -64,7 +75,7 @@
 
 
 /* start responsive styling */
-@media screen and (max-width: 375px){
+@media screen and (max-width: 393px){
 	.pokemon-list{
 		grid-template-columns: 1fr;
 	}

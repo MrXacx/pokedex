@@ -6,7 +6,6 @@
 	font-family: 'Roboto', sans-serif;
 	margin: 0;
 	padding: 0;
-	box-sizing: border:box;
 	list-style: none;
 	color: #FFF;
 }
@@ -25,8 +24,9 @@ h1{
 	width: 100vw;
 	height: 100%;
 	margin: 0 auto;
-	padding: 1rem;
+	padding: 1rem 0.5rem;
 	background-color: #FFF;
+	box-sizing: border-box;
 }
 /* end styles container */
 
@@ -43,5 +43,6 @@ h1{
 		height: auto;
 		margin 1rem auto;
 		border-radius: 1rem;
+		
 	}
 }
