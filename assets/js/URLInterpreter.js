@@ -2,39 +2,33 @@ let id = parseInt(window.location.search.split('?')[1].replace('q=', ''));
 
 if( id >= 1 &&  id  <= 151){
 	pokeApi.getPokemon(id)
-		.then(pokemon =>	
-			document.querySelector('.wrapper').innerHTML = 	
-				 	`
-						<section class="pokemon ${pokemon.type}">
-							<header>
-								<div class="details">
-									<span class="name">${pokemon.name}</span>
-									<ol class="type-list">
-										${pokemon.types.map(type => `<li class="type ${type}" title="${type.effect}">${type}</li>`).join('')}
-									 </ol>												
-									</div>
-								<span class="number">#${pokemon.number}</span>
-								</header>
-								<img class="pokemon-image" src="${pokemon.photo}" alt="${pokemon.name}">			
-							</section>
-						<section class="stats">
-							<section>
-								<h2>Abilities</h2>
-								<ul class="abilities-list">
-									${pokemon.abilities.sort().map(ability => `<li class="${pokemon.type}">${ability.name}</li>`).join('')}
-								</ul>
-							</section>
-							<section>
-								<h2>Moves</h2>
-								<ul class="moves-list">
-									${pokemon.moves.map(move => `<li class="${move.type}">${move.name}</li>`).join('')}
-								</ul>
-							</section>
-						</section>`)
-
-			.catch( error => console.log(error)); // Prinfile:///home/ariel/Workspace/angular/projects/PokeApp/pokemon.html/?q=namet the error on console
-}
-else if (isNaN(id)){
+		.then(pokemon =>	{
+			// First box
+			document.querySelector('.pokemon').classList.add(pokemon.type);
+		    document.querySelector('.name').innerHTML = 	pokemon.name;
+		    document.querySelector('.type-list').inneHTML  = pokemon.types.map(type => `<li class='type ${type}'>${type}</li>`).join('');
+		    document.querySelector('.number').innerHTML = `#${pokemon.number}`;
+		    let pokemonImg = document.querySelector('.pokemon-image');
+		    pokemonImg.src = pokemon.photo;
+		    pokemonImg.alt = pokemon.name;
+		    	    
+		    document.querySelector('.ability-list').innerHTML = pokemon.abilities.map(ability =>  `<li class='${pokemon.type}' >${ability.name}</li>`).join('');
+		    document.querySelector('.move-list').innerHTML = pokemon.moves.map(move =>  `<li class='${move.type}'>${move.name}</li>`).join('');
+		    
+		    
+		    
+		})
+		.catch( error => console.log(error)); // Prinfile:///home/ariel/Workspace/angular/projects/PokeApp/pokemon.html/?q=namet the error on console
+} else if (isNaN(id)) {
 	window.location.href = './index.html';
+} else {
+	document.querySelector('.pokemon').classList.add(	'null');
+	document.querySelector('.name').innerHTML = 	'These pokemon is not found';
+	document.querySelector('.number').innerHTML = '#???';
+	 let pokemonImg = document.querySelector('.pokemon-image');
+	 pokemonImg.id = 'not-found';
+    pokemonImg.src = 'assets/img/not_found.png';
+    pokemonImg.alt = 'pokemon is not found';
 }
+
 

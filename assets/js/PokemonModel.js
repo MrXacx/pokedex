@@ -7,6 +7,7 @@ class AbilityModel{
 
 class MoveModel{
 	constructor (move){
+		//console.log(move);
 		this.name = move.name;
 		this.type = move.type.name;
 	}

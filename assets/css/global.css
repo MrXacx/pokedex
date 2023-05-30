@@ -19,19 +19,19 @@ body{
 h1{
 	margin: 1rem 0 1rem 1rem;
 }
- .wrapper{
- 	width: 100%;
- 	margin: 2rem auto;
- 	padding: 1rem .5rem;
+.wrapper{
+	width: 100%;
+	margin: 2rem auto;
+	padding: 1rem .5rem;
 	box-sizing: border-box;
 	border-radius: 1rem;
 	box-shadow: 1px 2px 20px #A5A5A5;
- }
+}
 
- 
 form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin: 1rem auto;
     padding: 0.25rem 0.5rem;
@@ -40,7 +40,7 @@ form {
  select {
     padding: 0.5rem;
     border-radius: 1rem;
-    width: 10vw;
+    width: 50vw;
     background-color: transparent;
 }
 select:active{
@@ -48,7 +48,7 @@ select:active{
 }
 label, select {
 	text-transform: capitalize;
-    margin: 0 0.5rem;
+  	margin: .5rem;
 }
 
 .content{
@@ -114,6 +114,13 @@ label, select {
 		max-width: 90%;
 		height: auto;
 		margin: 1rem auto;	
+	}
+	form{
+		flex-direction: row;
+		justify-content: center;
+	}
+	select{
+		width: 25vw;
 	}
 	#load-more:hover, #back-to-top:hover{
 		transform: scale(1.1) rotate(-90deg);
