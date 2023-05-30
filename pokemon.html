@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="MrXacx">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
+        
+        <!-- normalize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <!-- styles -->
+        <link rel="stylesheet" href="./assets/css/pokemon.css">
+    </head>
+    <body onload>
+    	<div class="wrapper">
+						<section class="pokemon null">
+							<header>
+								<div class="details">
+									<span class="name">These pokemon is not found</span>								
+								</div>
+								<span class="number">#???</span>
+							</header>
+							<img id="not-found" class="pokemon-image" src="assets/img/not_found.png" alt="${pokemon.name}">			
+							</section>
+						<section class="stats">
+							<section>
+								<h2>Abilities</h2>
+
+							</section>
+							<section>
+								<h2>Moves</h2>
+							</section>
+						</section>
+					</div>
+	</body>
+	
+	<script src="assets/js/PokemonModel.js"></script>
+	<script src="assets/js/PokeApi.js"></script>
+	<script src="assets/js/URLInterpreter.js"></script>
+</html>

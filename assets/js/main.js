@@ -13,10 +13,13 @@ loadMore.addEventListener('click', evt => {
 	loadPokemonItems(offset, limit)
 	
 });
-
+const pokemonsRequesteds = {};
 function loadPokemonItems(offset, limit){
-	pokeApi.getPokemons(offset, limit).then( pokemonList => document.getElementById('pokemon-list').innerHTML += pokemonList.map(pokemon => 
-				`<li class="pokemon ${pokemon.type}">
+	pokeApi.getPokemons(offset, limit).then( pokemonList => document.getElementById('pokemon-list').innerHTML += pokemonList.map(pokemon => {
+				pokemonsRequesteds[pokemon.name] = pokemon;
+				//console.log(pokemonsRequesteds, pokemon);
+				return `
+				<li class="pokemon ${pokemon.type}" onclick="redirection('${pokemon.number}')">
 					<span class="number">#${pokemon.number}</span>
 					<span class="name">${pokemon.name}</span>
 					
@@ -28,7 +31,7 @@ function loadPokemonItems(offset, limit){
 						<img class="pokemon-image" src="${pokemon.photo}" alt="${pokemon.name}">
 					</div>
 					
-				</li>`).join(''))// Insert <li> to <ol> from html
+				</li>`}).join(''))// Insert <li> to <ol> from html
 	.catch( error => console.log(error)) // Print the error on console
 }
 
@@ -44,4 +47,9 @@ function changeLimit(input){
  function resetSerch(){
  	offset = 0;
  	document.getElementById('pokemon-list').innerHTML = "";
+ }
+
+
+function redirection(name){
+	window.location.href = `./pokemon.html?q=${name}`;
  }
